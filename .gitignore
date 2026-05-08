@@ -70,3 +70,15 @@ mini-swe-agent/
 result
 website/static/api/skills-index.json
 models-dev-upstream/
+
+build/
+*.pyc
+__pycache__/
+.hermes_old/
+.gemini_old/
+
+build/
+dist/
+*.egg-info/
+.hermes_old/
+.gemini_old/
