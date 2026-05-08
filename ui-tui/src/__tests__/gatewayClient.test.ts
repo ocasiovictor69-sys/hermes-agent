@@ -273,9 +273,9 @@ describe('GatewayClient websocket attach mode', () => {
   })
 
   it('redacts user-info credentials even on URLs the WHATWG parser rejects', () => {
-    // Trailing space makes `new URL(raw)` throw, exercising the
-    // fallback redaction path. The credentials must still be stripped.
-    process.env.HERMES_TUI_GATEWAY_URL = 'ws://alice:hunter2@gateway.test/api/ws?token=secret '
+    // Invalid percent-encoding keeps `new URL(raw)` throwing even after any
+    // surrounding whitespace is trimmed, exercising the fallback path.
+    process.env.HERMES_TUI_GATEWAY_URL = 'ws://alice:%zz@gateway.test/api/ws?token=secret'
     delete (globalThis as { WebSocket?: unknown }).WebSocket
 
     const gw = new GatewayClient()
