@@ -181,6 +181,56 @@ describe('GatewayClient websocket attach mode', () => {
     expect(exits).toEqual([1011])
   })
 
+  it('rejects pending RPCs when kill() closes the attached websocket', async () => {
+    process.env.HERMES_TUI_GATEWAY_URL = 'ws://gateway.test/api/ws?token=abc'
+    const gw = new GatewayClient()
+
+    gw.start()
+    const gatewaySocket = FakeWebSocket.instances[0]!
+
+    gatewaySocket.open()
+    gw.drain()
+
+    const req = gw.request('session.create', {})
+    await vi.waitFor(() => expect(gatewaySocket.sent.length).toBeGreaterThan(0))
+
+    gw.kill()
+
+    await expect(req).rejects.toThrow(/gateway closed/)
+  })
+
+  it('reattaches when HERMES_TUI_GATEWAY_URL rotates between requests', async () => {
+    process.env.HERMES_TUI_GATEWAY_URL = 'ws://gateway-old.test/api/ws?token=abc'
+    const gw = new GatewayClient()
+
+    gw.start()
+    const firstSocket = FakeWebSocket.instances[0]!
+
+    firstSocket.open()
+    gw.drain()
+
+    const stale = gw.request('session.create', {})
+    await vi.waitFor(() => expect(firstSocket.sent.length).toBeGreaterThan(0))
+
+    process.env.HERMES_TUI_GATEWAY_URL = 'ws://gateway-new.test/api/ws?token=xyz'
+    const next = gw.request('session.create', {})
+
+    await expect(stale).rejects.toThrow(/gateway attach url changed/)
+    await vi.waitFor(() => expect(FakeWebSocket.instances).toHaveLength(2))
+
+    const secondSocket = FakeWebSocket.instances[1]!
+    expect(secondSocket.url).toContain('gateway-new.test')
+
+    secondSocket.open()
+    await vi.waitFor(() => expect(secondSocket.sent.length).toBeGreaterThan(0))
+
+    const frame = JSON.parse(secondSocket.sent[0] ?? '{}') as { id: string }
+    secondSocket.message(JSON.stringify({ id: frame.id, jsonrpc: '2.0', result: { ok: true } }))
+
+    await expect(next).resolves.toEqual({ ok: true })
+    gw.kill()
+  })
+
   it('redacts query string secrets in attach failure logs and events', () => {
     process.env.HERMES_TUI_GATEWAY_URL = 'ws://gateway.test/api/ws?token=hunter2&channel=secret'
     delete (globalThis as { WebSocket?: unknown }).WebSocket

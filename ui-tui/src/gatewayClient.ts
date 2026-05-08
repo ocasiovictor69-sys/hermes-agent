@@ -165,17 +165,30 @@ export class GatewayClient extends EventEmitter {
   }
 
   private closeGatewaySocket() {
+    // Null the active reference BEFORE invoking close(): real WebSocket
+    // implementations dispatch the 'close' event after a microtask hop,
+    // so by the time the handler runs `this.ws` should already be null
+    // and the identity guard will correctly classify the close as
+    // belonging to a discarded socket. (Test fakes emit synchronously,
+    // so doing the swap up front is also what makes the identity guard
+    // match real timing in tests.)
+    const ws = this.ws
+    this.ws = null
+    this.wsConnectPromise = null
     try {
-      this.ws?.close()
+      ws?.close()
     } catch {
       // best effort
-    } finally {
-      this.ws = null
-      this.wsConnectPromise = null
     }
   }
 
   private resetStartupState() {
+    // Reject any in-flight RPCs left over from the previous transport
+    // before we swap. Otherwise the old transport's stale exit/close
+    // handlers (now identity-gated to ignore unrelated transports)
+    // never fire `rejectPending`, leaving callers hanging on promises
+    // attached to a discarded child / socket.
+    this.rejectPending(new Error('gateway restarting'))
     this.ready = false
     this.bufferedEvents.clear()
     this.pendingExit = undefined
@@ -320,15 +333,26 @@ export class GatewayClient extends EventEmitter {
       this.publish({ type: 'gateway.stderr', payload: { line } })
     })
 
+    const ownedProc = this.proc
     this.proc.on('error', err => {
+      // Skip stale errors on an already-replaced child.
+      if (this.proc !== ownedProc) {
+        return
+      }
+
       const line = `[spawn] ${err.message}`
 
       this.pushLog(line)
       this.publish({ type: 'gateway.stderr', payload: { line } })
-      this.rejectPending(new Error(`gateway error: ${err.message}`))
+      // Detach the reference up front so the late `exit` event for
+      // this same child is identity-skipped (we don't want to emit
+      // 'exit' twice). Then run the full teardown — clears the
+      // startup timer so we don't fire a misleading
+      // `gateway.start_timeout`, rejects pending RPCs, and emits or
+      // queues a single `exit`.
+      this.proc = null
+      this.handleTransportExit(1, `gateway error: ${err.message}`)
     })
-
-    const ownedProc = this.proc
     this.proc.on('exit', code => {
       // start() can replace `this.proc` while an old child is still
       // tearing down. Skip stale exits so we don't clear the new
@@ -589,7 +613,12 @@ export class GatewayClient extends EventEmitter {
 
     if (attachUrl) {
       if (this.attachUrl !== attachUrl) {
+        // The env var rotated at runtime — drop the existing
+        // socket so the next ensure cycle reconnects to the new
+        // endpoint instead of silently keeping the old session.
         this.attachUrl = attachUrl
+        this.rejectPending(new Error('gateway attach url changed'))
+        this.closeGatewaySocket()
       }
 
       return this.requestOverWebSocket<T>(method, params)
@@ -638,5 +667,10 @@ export class GatewayClient extends EventEmitter {
     this.closeGatewaySocket()
     this.closeSidecarSocket()
     this.clearReadyTimer()
+    // The ws 'close' handler is identity-gated on `this.ws === ws`
+    // and we just nulled `this.ws`, so it will short-circuit and
+    // skip handleTransportExit. Reject pending RPCs explicitly so
+    // attach-mode promises do not hang after an intentional kill.
+    this.rejectPending(new Error('gateway closed'))
   }
 }
