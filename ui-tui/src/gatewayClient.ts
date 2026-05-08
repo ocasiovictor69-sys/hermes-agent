@@ -401,9 +401,8 @@ export class GatewayClient extends EventEmitter {
         ws.addEventListener(
           'error',
           () => {
-            this.pushLog('[startup] gateway websocket connect error')
-
             if (!settled) {
+              this.pushLog('[startup] gateway websocket connect error')
               settled = true
               reject(new Error('gateway websocket connection failed'))
             }
