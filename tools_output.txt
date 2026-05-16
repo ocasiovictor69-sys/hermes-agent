@@ -1,0 +1,99 @@
+﻿
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ Hermes Agent v0.13.0 (2026.5.7) ┬╖ upstream 2180b683 ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé                                      Available Tools                        Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓóÇΓúÇΓíÇΓáÇΓúÇΓúÇΓáÇΓóÇΓúÇΓíÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    browser: browser_back, browser_click,  Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓóÇΓúáΓú┤Γú╛Γú┐Γú┐ΓúçΓá╕Γú┐Γú┐ΓáçΓú╕Γú┐Γú┐Γú╖ΓúªΓúäΓíÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    ...                                    Γöé
+Γöé    ΓáÇΓóÇΓúáΓú┤Γú╢Γá┐ΓáïΓú⌐Γí┐Γú┐Γí┐Γá╗Γú┐ΓíçΓóáΓíäΓó╕Γú┐ΓáƒΓó┐Γú┐Γó┐ΓúìΓáÖΓá┐Γú╢ΓúªΓúäΓíÇΓáÇ    browser-cdp: browser_cdp,              Γöé
+Γöé    ΓáÇΓáÇΓáëΓáëΓáüΓá╢ΓáƒΓáïΓáÇΓáëΓáÇΓóÇΓúêΓúüΓíêΓóüΓúêΓúüΓíÇΓáÇΓáëΓáÇΓáÖΓá╗Γá╢ΓáêΓáëΓáëΓáÇΓáÇ    browser_dialog                         Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓú┤Γú┐Γí┐Γá¢ΓóüΓíêΓá¢Γó┐Γú┐ΓúªΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    clarify: clarify                       Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓá┐Γú┐ΓúªΓúñΓúêΓáüΓóáΓú┤Γú┐Γá┐ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    code_execution: execute_code           Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáêΓáëΓá╗Γó┐Γú┐ΓúªΓíëΓáüΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    computer_use: computer_use             Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÿΓó╖ΓúªΓúêΓá¢ΓáâΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    cronjob: cronjob                       Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓóáΓú┤ΓáªΓáêΓáÖΓá┐ΓúªΓíäΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    delegation: delegate_task              Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓá╕Γú┐ΓúñΓíêΓáüΓóñΓú┐ΓáçΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    discord: discord                       Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáëΓá¢Γá╖ΓáäΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    (and 20 more toolsets...)              Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓóÇΓúÇΓáæΓó╢ΓúäΓíÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ                                           Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓú┐ΓáüΓó░ΓíåΓáêΓí┐ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    MCP Servers                            Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáêΓá│ΓáêΓúíΓá₧ΓáüΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    filesystem (stdio) ΓÇö failed            Γöé
+Γöé    ΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáêΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇΓáÇ    gitnexus (stdio) ΓÇö failed              Γöé
+Γöé                                      google-gemini (stdio) ΓÇö failed         Γöé
+Γöé    deepseek-chat ┬╖ Nous Research                                            Γöé
+Γöé     D:\TomorrowNow AI\09. System     Available Skills                       Γöé
+Γöé          Core\Tools\Hermes           autonomous-ai-agents: claude-code,     Γöé
+Γöé   Session: 20260508_153516_298cb9    codex, hermes-agent, opencode          Γöé
+Γöé                                      creative: architecture-diagram,        Γöé
+Γöé                                      ascii-art, ascii-video, b...           Γöé
+Γöé                                      data-science: jupyter-live-kernel      Γöé
+Γöé                                      devops: kanban-orchestrator,           Γöé
+Γöé                                      kanban-worker, webhook-sub...          Γöé
+Γöé                                      email: himalaya                        Γöé
+Γöé                                      gaming: minecraft-modpack-server,      Γöé
+Γöé                                      pokemon-player                         Γöé
+Γöé                                      general: dogfood, obsidian-bridge,     Γöé
+Γöé                                      openclaw-migration, y...               Γöé
+Γöé                                      github: codebase-inspection,           Γöé
+Γöé                                      github-auth, github-code-r...          Γöé
+Γöé                                      mcp: native-mcp                        Γöé
+Γöé                                      media: gif-search, heartmula,          Γöé
+Γöé                                      songsee, spotify, youtub...            Γöé
+Γöé                                      mlops: audiocraft-audio-generation,    Γöé
+Γöé                                      axolotl, dspy, eva...                  Γöé
+Γöé                                      note-taking: obsidian                  Γöé
+Γöé                                      productivity: airtable,                Γöé
+Γöé                                      google-workspace, linear, maps,        Γöé
+Γöé                                      nano-...                               Γöé
+Γöé                                      red-teaming: godmode                   Γöé
+Γöé                                      research: arxiv, blogwatcher,          Γöé
+Γöé                                      llm-wiki, polymarket                   Γöé
+Γöé                                      smart-home: openhue                    Γöé
+Γöé                                      software-development:                  Γöé
+Γöé                                      debugging-hermes-tui-commands,         Γöé
+Γöé                                      hermes-agent-ski...                    Γöé
+Γöé                                                                             Γöé
+Γöé                                      16 tools ┬╖ 85 skills ┬╖ /help for       Γöé
+Γöé                                      commands                               Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+
+
++------------------------------------------------------------------------------+
+|                            (^_^)/ Available Tools                            |
++------------------------------------------------------------------------------+
+
+  [clarify]
+    * clarify              - Ask the user a question when you need clarification, feedback, or a decision before proceeding.
+
+  [cronjob]
+    * cronjob              - Manage scheduled cron jobs with a single compressed tool.
+
+  [delegation]
+    * delegate_task        - Spawn one or more subagents to work on tasks in isolated contexts.
+
+  [file]
+    * patch                - Targeted find-and-replace edits in files.
+    * read_file            - Read a text file with line numbers and pagination.
+    * search_files         - Search file contents or find files by name.
+    * write_file           - Write content to a file, completely replacing existing content.
+
+  [memory]
+    * memory               - Save durable information to persistent memory that survives across sessions.
+
+  [session_search]
+    * session_search       - Search your long-term memory of past conversations, or browse recent sessions.
+
+  [skills]
+    * skill_manage         - Manage skills (create, update, delete).
+    * skill_view           - Skills allow for loading information about specific tasks and workflows, as well as scripts and templates.
+    * skills_list          - List available skills (name + description).
+
+  [terminal]
+    * process              - Manage background processes started with terminal(background=true).
+    * terminal             - Execute shell commands on a Linux environment.
+
+  [todo]
+    * todo                 - Manage your task list for the current session.
+
+  [tts]
+    * text_to_speech       - Convert text to speech audio.
+
+  Total: 16 tools  πâ╜(^o^)πâÄ
+
